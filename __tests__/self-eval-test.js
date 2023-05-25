@@ -9,7 +9,7 @@ module.exports = eva => {
   // Strings.
   test(eva, '"hello"', Type.string);
 
-  // // Boolean.
-  // test(eva, true, Type.boolean);
-  // test(eva, false, Type.boolean);
+  // Boolean.
+  test(eva, true, Type.boolean);
+  test(eva, false, Type.boolean);
 };

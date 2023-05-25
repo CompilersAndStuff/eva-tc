@@ -1,7 +1,11 @@
 const assert = require('assert');
+const evaParser = require('../parser/evaParser');
 
 function exec(eva, exp) {
-  return eva.tc(exp);
+  if (typeof exp === 'string') {
+    exp = evaParser.parse(`(begin ${exp})`);
+  }
+  return eva.tcGlobal(exp);
 }
 
 function test(eva, exp, expected) {
