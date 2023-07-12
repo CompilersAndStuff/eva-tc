@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const fs = require('fs');
+const evaParser = require('../parser/evaParser');
+const EvaTC = require('../src/EvaTC');
+
+function tcGlobal(src, eva) {
+  const exp = evaParser.parse(`(begin ${src})`);
+
+  try {
+    eva.tcGlobal(exp);
+    console.log("No errors!");
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function main(argv) {
+  const [_node, _path, mode, exp] = argv;
+
+  const eva = new EvaTC();
+
+  if (mode === '-e') {
+    return tcGlobal(exp, eva);
+  }
+
+  if (mode === '-f') {
+    const src = fs.readFileSync(exp, 'utf-8');
+    return tcGlobal(src, eva);
+  }
+}
+
+main(process.argv)

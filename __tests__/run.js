@@ -7,6 +7,13 @@ const tests = [
   require('./block-test'),
   require('./if-test'),
   require('./while-test'),
+  require('./user-defined-function-test'),
+  require('./built-in-function-test'),
+  require('./lambda-function-test'),
+  require('./alias-test'),
+  require('./class-test'),
+  require('./union-test'),
+  require('./generics-test')
 ];
 
 const eva = new EvaTC();

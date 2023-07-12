@@ -1,0 +1,7 @@
+(type value (or number string))
+(var (x value) 10)
+(var (y value) "10")
+
+(+ x y)
+
+(- x y)
